@@ -13,7 +13,7 @@ apt-get install -y git vim build-essential python3.5-dev python3-venv \
 
 # Postgres DB setup
 echo -e "\033[0;34m > Setting up DB. If it already exists this will generate warnings, but no harm will be done.\033[0m"
-sudo -u postgres psql -c "CREATE DATABASE codetest ENCODING='UTF8' TEMPLATE=template0;"
+sudo -u postgres psql -c "CREATE DATABASE deneme ENCODING='UTF8' TEMPLATE=template0;"
 sudo -u postgres psql -c "CREATE USER ubuntu;"
 sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE codetest TO ubuntu;"
 sudo -u postgres psql -c "ALTER USER ubuntu CREATEDB;"
