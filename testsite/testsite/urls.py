@@ -14,7 +14,18 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.conf.urls.static import static
+from episodes import views
+from . import settings
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^episodes/$', views.Episodes.as_view(), name='episodes'),
+    url(r'^episode/(?P<episode_number>\d+)/$', views.Episodes.as_view(), name='reactions'),
+    url(r'^your_views$', views.Episodes.as_view(), name='comments')
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

@@ -1,4 +1,4 @@
-Django==1.8.15
+Django==1.10.1
 ecdsa==0.13
 Fabric3==1.12.post1
 paramiko==1.17.2

@@ -19,3 +19,8 @@ def make_migrations():
 
 def requirements():
     local('/home/ubuntu/.virtualenvs/code-test/bin/pip install -r requirements.txt ')
+
+
+def restore_database():
+    local('/home/ubuntu/.virtualenvs/code-test/bin/python /vagrant/testsite/manage.py flush')
+    local('/home/ubuntu/.virtualenvs/code-test/bin/python /vagrant/testsite/manage.py loaddata fixtures.json')

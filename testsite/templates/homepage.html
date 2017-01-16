@@ -1,0 +1,21 @@
+{% include 'header.html' %}
+    <h1>Homepage</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                {% for episode in episodes %}
+                        <h1><a href="{% url 'reactions' episode.id %}">{{ episode.title }}</a></h1>
+                        <img src="{{MEDIA_URL}}{{episode.hero_image}}" width="300" height="300"/>
+                        <div class="col">
+                            <a href="{% url 'reactions' episode.id %}">
+                                Comments: {{ episode.reactions_tweetreaction_related.count }}
+                                <span class="glyphicon glyphicon glyphicon-comment"></span>
+                                Reactions: {{ episode.reactions_imagereaction_related.count }}
+                                <span class="glyphicon glyphicon glyphicon-heart"></span>
+                        </div>
+                    </div>
+                {% endfor %}
+        </div>
+    </div>
+
+{% include 'footer.html' %}
